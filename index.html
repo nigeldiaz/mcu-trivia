@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+    Created by: Nigel Diaz
+    Created on: July 6, 2021
+    Last updated on: July 10, 2021 
+-->
+<html lang="en">
+    <head>
+        <meta content="en-us" http-equiv="Content-Language">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Marvel Cinematic Universe Trivia</title>
+        <meta content="Nigel Diaz, this profile does not exist, fake profile generator" name="keywords">
+        <meta content="This is a web page that generates fake profiles that do not exist." name="description">
+        <link media="only screen and (min-width:1024px)" href="assets/css/triviastyles.css" rel="stylesheet" type="text/css">
+        <link media="only screen and (max-width:1024px)" href="assets/css/triviastyles.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <div id="allPage">
+            <div id="menu">
+                <img id="mcuLogo" src="assets/img/MCU_Trivia_Logo.png" alt="MCU Trivia Logo">
+                <p>
+                    <em>How well do you know the MCU?</em>
+                </p>
+
+                <br/>
+                <select id="selectMode">
+                    <option value="easyMode">Easy</option>
+                    <option value="hardMode">Hard</option>
+                </select>
+                <br/>
+                <button id="btnPlay">Play</button>
+            </div>
+            <div id="play">
+                <div id="timer"> 
+                    <p id="countdown"></p>
+                </div>
+                <p id="question"></p>
+                <table>
+                    <tr>
+                        <td>
+                            <button id="btnChoice1">A</button>
+                        </td>
+                        <td>
+                            <button id="btnChoice2">B</button>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="btnChoice3">C</button>
+                        </td>
+                        <td>
+                            <button id="btnChoice4">D</button>                            
+                        </td>
+                    </tr>
+                </table>
+                <button id="btnNext">Next</button>
+            </div>
+            <div id="score">
+                Your score is: 
+                <p id="points"></p>
+            </div>
+        </div>
+    </body>
+    <script src="assets/js/trivia.js"></script>
+</html>
