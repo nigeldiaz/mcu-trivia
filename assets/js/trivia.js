@@ -1,10 +1,4 @@
-/* 
-    Created by: Nigel Diaz
-    Created on: July 6, 2021
-    Last updated on: July 10, 2021
 
-*/
-//declaration of global variables
 let score = 0;
 let level = 0;
 let points = 0;
@@ -18,12 +12,12 @@ const btnPlay = document.getElementById("btnPlay");
 const timer = document.getElementById("timer");
 const countdown = document.getElementById("countdown");
 const selectMode = document.getElementById("selectMode");
-//default element states when page loaded
+
 document.getElementById("play").style.display = "none"; 
 document.getElementById("score").style.display = "none";
 btnNext.style.display = "none";
-btnPlay.onclick = play; //onclick event for play button
-//define questions object with object literals in an array
+btnPlay.onclick = play;
+
 let questions = [
     {
         question: "Who is the real Mandarin?", 
@@ -175,10 +169,10 @@ let questions = [
     }
 ];
 
-questions = shuffleQuestions(questions); //questions are shuffled
+questions = shuffleQuestions(questions);
 
-btnNext.onclick = next; //onclick event for next button
-//shuffles questions in passed array and returns shuffled array
+btnNext.onclick = next;
+
 function shuffleQuestions(array) {
     var swap = array.length, temp, index;
     while (swap > 0) {
@@ -190,19 +184,21 @@ function shuffleQuestions(array) {
     }
     return array;
 }
-//function for onclick event when correct answers are chosen
+
 function correct(answer) {
     answer.style.color = "green";
     answer.style.backgroundColor = "#b6fccc";
     endLevel();
 }
-//function for onclick event when wrong answers are chosen
+
 function wrong(answer) {
     answer.style.color = "red";
     answer.style.backgroundColor = "#ffc9c9";
     endLevel();    
 }
-//buttons change state when level ends after a question is answered
+
+
+
 function endLevel() {
     btnChoice1.disabled = true;
     btnChoice2.disabled = true;
@@ -214,7 +210,7 @@ function endLevel() {
     btnChoice4.onmouseover = null;
     btnNext.style.display = "block";
 }
-//states of buttons are reset for next question/level
+
 function reset() {
     btnChoices.forEach(function(choice) {
         choice.style.color = null;
@@ -227,7 +223,7 @@ function reset() {
     btnNext.style.display = "none";
 
 }
-//onclick event for when next button is clicked
+
 function next() {
     reset();
 
@@ -238,14 +234,14 @@ function next() {
         displayScore();
     }
 }
-let timerSeconds = 0; //declaration of timerSeconds variable
-//timer is set for 10 seconds
+let timerSeconds = 0;
+
 function setTimer() {
     timerSeconds = new Date();
     timerSeconds.setSeconds(timerSeconds.getSeconds()+11);
     timerSeconds = timerSeconds.getTime();
 }
-//timer starts to countdown per question/level
+
 function startTimer() {
     setTimer();
     setInterval(function() {    
@@ -261,7 +257,8 @@ function startTimer() {
         }
     }, 1000);
 }
-//onclick event for when play button is clicked
+
+
 function play() {
     document.getElementById("menu").style.display = "none"; 
     document.getElementById("play").style.display = "block"; 
@@ -312,9 +309,11 @@ function play() {
    
     level++;      
 }
-//score is displayed at the end of the trivia
+
 function displayScore() {
     document.getElementById("play").style.display = "none"; 
     document.getElementById("score").style.display = "block";  
     document.getElementById("points").innerHTML = score;
+
 }
+
