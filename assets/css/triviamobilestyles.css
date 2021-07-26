@@ -12,6 +12,7 @@
 
 #mcuLogo {
     width: 400px;
+    height: auto;
 }
 
 #menu, #score {
