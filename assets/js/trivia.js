@@ -1,4 +1,9 @@
-
+/* 
+    Created by: Nigel Diaz
+    Created on: July 11, 2021
+    Last updated on: August 7, 2021
+*/
+//declaration of global variables
 let score = 0;
 let level = 0;
 let points = 0;
@@ -13,12 +18,12 @@ const timer = document.getElementById("timer");
 const countdown = document.getElementById("countdown");
 const selectMode = document.getElementById("selectMode");
 const backgroundMusic = document.getElementById("backgroundMusic");
-
+//default on page load
 document.getElementById("play").style.display = "none"; 
 document.getElementById("score").style.display = "none";
 btnNext.style.display = "none";
 btnPlay.onclick = play;
-
+//declare questions object with object literals in an array
 let questions = [
     {
         question: "Who is the real Mandarin?", 
@@ -169,11 +174,11 @@ let questions = [
         answer: "\"I want you to break into a place and steal some shit.\""
     }
 ];
-
+//shuffle questions array
 questions = shuffleQuestions(questions);
 
 btnNext.onclick = next;
-
+//shuffles elements in a passed array and returns new array
 function shuffleQuestions(array) {
     var swap = array.length, temp, index;
     while (swap > 0) {
@@ -185,19 +190,19 @@ function shuffleQuestions(array) {
     }
     return array;
 }
-
+//highlights answer selected if correct
 function correct(answer) {
     answer.style.color = "green";
     answer.style.backgroundColor = "#b6fccc";
     endLevel();
 }
-
+//highlights answer selected if wrong
 function wrong(answer) {
     answer.style.color = "red";
     answer.style.backgroundColor = "#ffc9c9";
     endLevel();    
 }
-
+//ends level and disables buttons
 function endLevel() {
     btnChoice1.disabled = true;
     btnChoice2.disabled = true;
@@ -209,7 +214,7 @@ function endLevel() {
     btnChoice4.onmouseover = null;
     btnNext.style.display = "block";
 }
-
+//resets buttons for next level
 function reset() {
     btnChoices.forEach(function(choice) {
         choice.style.color = null;
@@ -220,9 +225,8 @@ function reset() {
     btnChoice3.disabled = false;
     btnChoice4.disabled = false;
     btnNext.style.display = "none";
-
 }
-
+//event listener for next button
 function next() {
     reset();
 
@@ -234,13 +238,13 @@ function next() {
     }
 }
 let timerSeconds = 0;
-
+//timer is set to 10 seconds from current time
 function setTimer() {
     timerSeconds = new Date();
     timerSeconds.setSeconds(timerSeconds.getSeconds()+11);
     timerSeconds = timerSeconds.getTime();
 }
-
+//timer starts to count down
 function startTimer() {
     setTimer();
     setInterval(function() {    
@@ -257,7 +261,7 @@ function startTimer() {
     }, 1000);
 }
 
-
+//event listener for play button
 function play() {
     backgroundMusic.play();
     document.getElementById("menu").style.display = "none"; 
@@ -309,7 +313,7 @@ function play() {
    
     level++;      
 }
-
+//score is displayed 
 function displayScore() {
     document.getElementById("play").style.display = "none"; 
     document.getElementById("score").style.display = "block";  
