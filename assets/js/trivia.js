@@ -12,6 +12,7 @@ const btnPlay = document.getElementById("btnPlay");
 const timer = document.getElementById("timer");
 const countdown = document.getElementById("countdown");
 const selectMode = document.getElementById("selectMode");
+const backgroundMusic = document.getElementById("backgroundMusic");
 
 document.getElementById("play").style.display = "none"; 
 document.getElementById("score").style.display = "none";
@@ -197,8 +198,6 @@ function wrong(answer) {
     endLevel();    
 }
 
-
-
 function endLevel() {
     btnChoice1.disabled = true;
     btnChoice2.disabled = true;
@@ -260,6 +259,7 @@ function startTimer() {
 
 
 function play() {
+    backgroundMusic.play();
     document.getElementById("menu").style.display = "none"; 
     document.getElementById("play").style.display = "block"; 
 
